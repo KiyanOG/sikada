@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+
+    <title>Tambah Harga</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+          rel="stylesheet">
+
+    <link rel="stylesheet"
+          th:href="@{/css/admin.css}">
+
+</head>
+
+<body>
+
+<div class="container-fluid">
+
+    <div class="row">
+
+        <!-- Sidebar -->
+        <div class="col-md-2 sidebar">
+
+            <h3 class="mt-4 text-center">
+                <img src="/img/logo.png" alt="Logo" class="logo">
+                SIKADA
+            </h3>
+
+            <hr>
+
+            <a href="/admin/dashboard" class="menu-link">Dashboard</a>
+            <a href="/admin/komoditas" class="menu-link">Komoditas</a>
+            <a href="/admin/pasar" class="menu-link">Pasar</a>
+            <a href="/admin/harga" class="menu-link">Harga</a>
+            <a href="/admin/logout"
+                onclick="return confirm('Apakah Anda yakin ingin logout?')"
+               class="menu-link text-danger">
+                Logout
+            </a>
+
+        </div>
+
+        <!-- Content -->
+        <div class="col-md-10 content">
+
+            <div class="card shadow p-4 mt-4">
+
+                <h2 class="mb-4">
+                    Tambah Harga Komoditas
+                </h2>
+
+                <form th:action="@{/admin/harga/simpan}"
+                      th:object="${harga}"
+                      method="post">
+
+                    <div class="mb-3">
+
+                        <label class="form-label">
+                            Komoditas
+                        </label>
+
+                        <select th:field="*{komoditas}"
+                                class="form-select"
+                                required>
+
+                            <option value="">
+                                -- Pilih Komoditas --
+                            </option>
+
+                            <option th:each="k : ${komoditasList}"
+                                    th:value="${k.id}"
+                                    th:text="${k.namaKomoditas}">
+                            </option>
+
+                        </select>
+
+                    </div>
+
+                    <div class="mb-3">
+
+                        <label class="form-label">
+                            Pasar
+                        </label>
+
+                        <select th:field="*{pasar}"
+                                class="form-select"
+                                required>
+
+                            <option value="">
+                                -- Pilih Pasar --
+                            </option>
+
+                            <option th:each="p : ${pasarList}"
+                                    th:value="${p.id}"
+                                    th:text="${p.namaPasar}">
+                            </option>
+
+                        </select>
+
+                    </div>
+
+                    <div class="mb-3">
+
+                        <label class="form-label">
+                            Harga
+                        </label>
+
+                        <input type="number"
+                               th:field="*{harga}"
+                               class="form-control"
+                               required>
+
+                    </div>
+
+                    <button type="submit"
+                            class="btn btn-success">
+
+                        Simpan
+
+                    </button>
+
+                    <a href="/admin/harga"
+                       class="btn btn-secondary">
+
+                        Kembali
+
+                    </a>
+
+                </form>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+</body>
+</html>

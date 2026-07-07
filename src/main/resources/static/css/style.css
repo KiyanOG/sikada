@@ -1,0 +1,58 @@
+body{
+    background:#f5f6fa;
+}
+
+.logo{
+    width:55px;
+}
+
+.brand-text h5{
+    margin:0;
+    color:#0d6efd;
+    font-weight:700;
+}
+
+.brand-text p{
+    margin:0;
+    font-size:12px;
+    color:#666;
+}
+
+.hero{
+
+    background:
+            linear-gradient(
+                    135deg,
+                    #0d6efd,
+                    #084298
+            );
+
+    color:white;
+
+    padding:60px 0;
+}
+
+.summary-card{
+
+    background:white;
+
+    padding:20px;
+
+    border-radius:10px;
+
+    box-shadow:
+            0 2px 10px
+            rgba(0,0,0,.05);
+}
+
+footer{
+
+    background:white;
+
+    padding:20px;
+
+    text-align:center;
+
+    border-top:
+            1px solid #ddd;
+}
